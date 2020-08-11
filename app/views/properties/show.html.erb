@@ -25,5 +25,14 @@
   <%= @property.content %>
 </p>
 
+<p>
+  <% @property.nearest_stations.each do |station| %>
+    <strong>最寄り駅</strong><br>
+    <%= station.name %><br>
+    <%= station.route_name %><br>
+    <%= station.walk_time %><br>
+  <% end %>
+</p>
+
 <%= link_to 'Edit', edit_property_path(@property) %> |
 <%= link_to 'Back', properties_path %>

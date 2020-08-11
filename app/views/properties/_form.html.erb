@@ -36,6 +36,23 @@
     <%= form.text_area :content %>
   </div>
 
+  <div class="field">
+    <h2>New Station</h2>
+    <%= form.fields_for :nearest_stations do |station| %>
+      <%= station.label :name %><br>
+      <%= station.text_field :name %>
+      <%= station.label :route_name %><br>
+      <%= station.text_field :route_name %>
+      <%= station.label :walk_time %><br>
+      <%= station.text_field :walk_time %>
+      <% if @property.persisted? %>
+        <%= station.label '削除' %>
+        <%= station.check_box :_destroy %>
+      <% end %>
+        <br>
+    <% end %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>

@@ -15,6 +15,7 @@ class PropertiesController < ApplicationController
   # GET /properties/new
   def new
     @property = Property.new
+    @property.nearest_stations.build
   end
 
   # GET /properties/1/edit
@@ -25,7 +26,6 @@ class PropertiesController < ApplicationController
   # POST /properties.json
   def create
     @property = Property.new(property_params)
-
     respond_to do |format|
       if @property.save
         format.html { redirect_to @property, notice: 'Property was successfully created.' }
@@ -69,6 +69,7 @@ class PropertiesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def property_params
-      params.require(:property).permit(:name, :rent, :address, :age, :content)
+      params.require(:property).permit(:name, :rent, :address, :age, :content,
+          nearest_stations_attributes: [:id, :name, :route_name, :walk_time, :property_id, :_destroy])
     end
 end
