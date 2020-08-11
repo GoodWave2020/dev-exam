@@ -18,7 +18,7 @@
 
   <div class="field">
     <%= form.label :rent %>
-    <%= form.number_field :rent %>
+    <%= form.number_field :rent %>円
   </div>
 
   <div class="field">
@@ -28,10 +28,10 @@
 
   <div class="field">
     <%= form.label :age %>
-    <%= form.number_field :age %>
+    <%= form.number_field :age %>年
   </div>
 
-  <div class="field">
+  <div class="field border">
     <%= form.label :content %>
     <%= form.text_area :content %>
   </div>
@@ -41,12 +41,18 @@
     <%= form.fields_for :nearest_stations do |station| %>
       <h2><%= I18n.t("activerecord.models.nearest_station") %> <%= @tag_number %></h2>
       <% @tag_number += 1 %>
-      <%= station.label :name %>
-      <%= station.text_field :name %>
-      <%= station.label :route_name %>
-      <%= station.text_field :route_name %>
-      <%= station.label :walk_time %>
-      <%= station.text_field :walk_time %>
+      <p>
+        <%= station.label :route_name %>
+        <%= station.text_field :route_name %>
+      </p>
+      <p>
+        <%= station.label :name %>
+        <%= station.text_field :name %>
+      </p>
+      <p>
+        <%= station.label :walk_time %>
+        <%= station.text_field :walk_time %>分
+      </p>
       <% if @property.persisted? %>
         <%= station.label I18n.t("helpers.select.destroy") %>
         <%= station.check_box :_destroy %>

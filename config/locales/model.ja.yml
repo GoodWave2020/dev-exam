@@ -12,6 +12,7 @@ ja:
         properties: 物件一覧
         edit_property: 物件編集
         new_property: 物件登録
+        new_property_link: 物件を登録する
         name: 物件名
         rent: 賃料
         address: 住所

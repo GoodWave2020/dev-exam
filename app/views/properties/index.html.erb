@@ -18,9 +18,9 @@
     <% @properties.each do |property| %>
       <tr>
         <td><%= property.name %></td>
-        <td><%= property.rent %></td>
+        <td><%= property.rent %>円</td>
         <td><%= property.address %></td>
-        <td><%= property.age %></td>
+        <td><%= property.age %>年</td>
         <td><%= property.content %></td>
         <td><%= link_to I18n.t("helpers.select.show"), property %></td>
         <td><%= link_to I18n.t("helpers.submit.edit"), edit_property_path(property) %></td>
@@ -32,4 +32,4 @@
 
 <br>
 
-<%= link_to I18n.t("activerecord.attributes.property.new_property"), new_property_path %>
+<%= link_to I18n.t("activerecord.attributes.property.new_property_link"), new_property_path %>
