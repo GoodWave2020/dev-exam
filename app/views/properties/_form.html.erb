@@ -1,7 +1,7 @@
 <%= form_with(model: property, local: true) do |form| %>
   <% if property.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(property.errors.count, "error") %> prohibited this property from being saved:</h2>
+      <h2><%= property.errors.count %> 件のエラー</h2>
 
       <ul>
       <% property.errors.full_messages.each do |message| %>
@@ -39,19 +39,18 @@
   <div class="field">
     <% @tag_number = 1 %>
     <%= form.fields_for :nearest_stations do |station| %>
-      <h2>New Station <%= @tag_number %></h2>
+      <h2><%= I18n.t("activerecord.models.nearest_station") %> <%= @tag_number %></h2>
       <% @tag_number += 1 %>
-      <%= station.label :name %><br>
+      <%= station.label :name %>
       <%= station.text_field :name %>
-      <%= station.label :route_name %><br>
+      <%= station.label :route_name %>
       <%= station.text_field :route_name %>
-      <%= station.label :walk_time %><br>
+      <%= station.label :walk_time %>
       <%= station.text_field :walk_time %>
       <% if @property.persisted? %>
-        <%= station.label '削除' %>
+        <%= station.label I18n.t("helpers.select.destroy") %>
         <%= station.check_box :_destroy %>
       <% end %>
-        <br>
     <% end %>
   </div>
 

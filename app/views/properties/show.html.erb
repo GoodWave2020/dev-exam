@@ -1,38 +1,40 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
+  <strong><%= I18n.t("activerecord.attributes.property.name") %>:</strong>
   <%= @property.name %>
 </p>
 
 <p>
-  <strong>Rent:</strong>
+  <strong><%= I18n.t("activerecord.attributes.property.rent") %>:</strong>
   <%= @property.rent %>
 </p>
 
 <p>
-  <strong>Address:</strong>
+  <strong><%= I18n.t("activerecord.attributes.property.address") %>:</strong>
   <%= @property.address %>
 </p>
 
 <p>
-  <strong>Age:</strong>
+  <strong><%= I18n.t("activerecord.attributes.property.age") %>:</strong>
   <%= @property.age %>
 </p>
 
 <p>
-  <strong>Content:</strong>
+  <strong><%= I18n.t("activerecord.attributes.property.content") %>:</strong>
   <%= @property.content %>
 </p>
 
 <p>
+  <% @tag_number = 1 %>
   <% @property.nearest_stations.each do |station| %>
-    <strong>最寄り駅</strong><br>
+    <strong><%= I18n.t("activerecord.models.nearest_station") %><%= @tag_number %></strong><br>
     <%= station.name %><br>
     <%= station.route_name %><br>
     <%= station.walk_time %><br>
+    <% @tag_number += 1 %>
   <% end %>
 </p>
 
-<%= link_to 'Edit', edit_property_path(@property) %> |
-<%= link_to 'Back', properties_path %>
+<%= link_to I18n.t("helpers.submit.edit"), edit_property_path(@property) %> |
+<%= link_to I18n.t("helpers.select.back"), properties_path %>
