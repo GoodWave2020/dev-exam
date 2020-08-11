@@ -37,8 +37,10 @@
   </div>
 
   <div class="field">
-    <h2>New Station</h2>
+    <% @tag_number = 1 %>
     <%= form.fields_for :nearest_stations do |station| %>
+      <h2>New Station <%= @tag_number %></h2>
+      <% @tag_number += 1 %>
       <%= station.label :name %><br>
       <%= station.text_field :name %>
       <%= station.label :route_name %><br>
