@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p class="indent">
+  <strong><%= I18n.t("activerecord.attributes.property.name") %>:</strong>
+  <%= @property.name %>
+</p>
+
+<p class="indent" >
+  <strong><%= I18n.t("activerecord.attributes.property.rent") %>:</strong>
+  <%= @property.rent %>円
+</p>
+
+<p class="indent" >
+  <strong><%= I18n.t("activerecord.attributes.property.address") %>:</strong>
+  <%= @property.address %>
+</p>
+
+<p class="indent" >
+  <strong><%= I18n.t("activerecord.attributes.property.age") %>:</strong>
+  <%= @property.age %>年
+</p>
+
+<p class="indent border" >
+  <strong><%= I18n.t("activerecord.attributes.property.content") %>:</strong>
+  <%= @property.content %>
+</p>
+
+
+  <% @tag_number = 1 %>
+  <% @property.nearest_stations.each do |station| %>
+    <h3><%= I18n.t("activerecord.models.nearest_station") %><%= @tag_number %></h3>
+    <p class="indent" >
+      <strong><%= I18n.t("activerecord.attributes.nearest_station.route_name") %>:</strong>
+      <%= station.route_name %>
+    </p>
+    <p class="indent" >
+      <strong><%= I18n.t("activerecord.attributes.nearest_station.name") %>:</strong>
+      <%= station.name %>
+    </p>
+    <p class="indent" >
+      <strong><%= I18n.t("activerecord.attributes.nearest_station.walk_time") %>:</strong>
+      <%= station.walk_time %>分
+    </p>
+    <% @tag_number += 1 %>
+  <% end %>
+
+
+<%= link_to I18n.t("helpers.submit.edit"), edit_property_path(@property) %> |
+<%= link_to I18n.t("helpers.select.back"), properties_path %>

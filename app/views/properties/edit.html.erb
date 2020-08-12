@@ -1,0 +1,6 @@
+<h1><%= I18n.t("activerecord.attributes.property.edit_property") %></h1>
+
+<%= render 'form', property: @property %>
+
+<%= link_to I18n.t("helpers.select.show"), @property %> |
+<%= link_to I18n.t("helpers.select.back"), properties_path %>

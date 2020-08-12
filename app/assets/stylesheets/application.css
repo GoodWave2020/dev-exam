@@ -13,3 +13,12 @@
  *= require_tree .
  *= require_self
  */
+.indent {
+  padding-left: 2em;
+  text-indent: 1em;
+}
+
+.border {
+  padding-bottom: 1rem;
+  border-bottom: 1px solid gray;
+}
